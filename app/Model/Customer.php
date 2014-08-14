@@ -6,6 +6,20 @@ App::uses('AppModel', 'Model');
  */
 class Customer extends AppModel {
 
+	public $belongsTo = array(
+		'CustomerDetail' => array(
+			'className' => 'CustomerDetail',
+			'foreignKey' => 'customerDetail_id'
+		)
+	);
+	
+	public $hasMany = array(
+		'Revisions' => array(
+			'className' => 'CustomerDetail',
+			'foreignKey' => 'customer_id'
+		),
+	);
+
 /**
  * Validation rules
  *
